@@ -91,7 +91,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-tailwind": "cross-env NODE_ENV=production postcss src/assets/css/tailwind.css -o src/assets/css/tailwind.output.css",
-    "start": "react-scripts start",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
     "build": "react-scripts build"
   },
   "devDependencies": {
