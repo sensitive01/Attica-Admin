@@ -150,6 +150,7 @@ const Login = () => {
       localStorage.setItem("name", name);
       localStorage.setItem("email", email);
       localStorage.setItem("role", role);
+      
 
       if (redirectToDashboard) {
         const finalRedirectURL = redirectURL || "/dashboard";
