@@ -129,7 +129,8 @@ import axios from "axios";
 const Login = () => {
   const { t } = useTranslation();
   const history = useHistory();
-  const { onSubmit, register, handleSubmit, errors, loading } = useLoginSubmit();
+  const { onSubmit, register, handleSubmit, errors, loading } =
+    useLoginSubmit();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -138,8 +139,12 @@ const Login = () => {
 
   const loginUser = async (data) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/admin/login", data);
-      const { token, name, email, role, redirectToDashboard, redirectURL } = response.data;
+      const response = await axios.post(
+        "https://attica.onrender.com/api/admin/login",
+        data
+      );
+      const { token, name, email, role, redirectToDashboard, redirectURL } =
+        response.data;
 
       localStorage.setItem("token", token);
       localStorage.setItem("name", name);
@@ -198,20 +203,32 @@ const Login = () => {
                   <Error errorName={errors.email} />
                   <div className="mt-6">
                     <LabelArea label="Password" />
-                    <div style={{ position: 'relative' }}>
+                    <div style={{ position: "relative" }}>
                       <InputArea
                         register={register}
                         label="Password"
                         name="password"
-                        type={showPassword ? 'text' : 'password'}
+                        type={showPassword ? "text" : "password"}
                         placeholder="***************"
                       />
                       <div
-                        style={{ position: 'absolute', top: '50%', right: '10px', transform: 'translateY(-50%)' }}>
+                        style={{
+                          position: "absolute",
+                          top: "50%",
+                          right: "10px",
+                          transform: "translateY(-50%)",
+                        }}
+                      >
                         {showPassword ? (
-                          <FiEye cursor="pointer" onClick={togglePasswordVisibility} />
+                          <FiEye
+                            cursor="pointer"
+                            onClick={togglePasswordVisibility}
+                          />
                         ) : (
-                          <FiEyeOff cursor="pointer" onClick={togglePasswordVisibility} />
+                          <FiEyeOff
+                            cursor="pointer"
+                            onClick={togglePasswordVisibility}
+                          />
                         )}
                       </div>
                     </div>
@@ -258,4 +275,3 @@ const Login = () => {
 };
 
 export default Login;
-
